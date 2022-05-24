@@ -71,17 +71,7 @@ function renderTodos() {
   filterTodos();
 }
 
-export function isDuplicate(todo, todos) {
-  todo = todo.toLowerCase();
-
-  for (let i = 0; i < todos.length; i++) {
-    const currentTodo = todos[i];
-    if (currentTodo.todo.toLowerCase() === todo) {
-      return true;
-    }
-  }
-  return false;
-}
+export function isDuplicate(todo, todos) {}
 
 function toggleTodoState(event) {
   const checkbox = event.target;
