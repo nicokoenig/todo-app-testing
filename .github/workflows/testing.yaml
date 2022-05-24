@@ -1,10 +1,10 @@
-name: Node.js CI
+name: CI
 
 on:
   push:
-    branches: [main]
+    branches: ["*"]
   pull_request:
-    branches: [main]
+    branches: ["main"]
 
 jobs:
   build:
@@ -12,15 +12,20 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [15.x]
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+      # Run the command to install node deps
       - run: npm ci
-      - run: npm test:ci
+      - run: npm run test:ci
+      # Run the command to start your dev server followed by the & sign
       - run: npm run serve &
-      - run: npm e2e:ci
+      # Run the command for the e2e tests
+      - run: npm run e2e:ci
+      # Run the command for the unit tests
