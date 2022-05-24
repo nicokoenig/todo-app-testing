@@ -1,0 +1,24 @@
+{
+  "name": "todo-app-e2e",
+  "version": "1.0.0",
+  "description": "Minimal todo app example.",
+  "main": "index.js",
+  "scripts": {
+    "serve": "serve ./src",
+    "e2e": "cypress open",
+    "e2e:ci": "cypress run",
+    "test": "jest --watch",
+    "test:ci": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.18.0",
+    "@types/jest": "^27.5.1",
+    "cypress": "^9.6.1",
+    "jest": "^28.1.0",
+    "serve": "^13.0.2"
+  },
+  "dependencies": {}
+}
